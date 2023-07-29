@@ -1,5 +1,6 @@
 package com.FreeL00P.ssyx.common.exception;
 
+import com.FreeL00P.ssyx.common.result.ResultCodeEnum;
 import lombok.Data;
 
 /**

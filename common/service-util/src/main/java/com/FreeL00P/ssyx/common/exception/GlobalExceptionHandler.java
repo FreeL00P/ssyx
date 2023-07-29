@@ -1,5 +1,6 @@
 package com.FreeL00P.ssyx.common.exception;
 
+import com.FreeL00P.ssyx.common.result.Result;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;

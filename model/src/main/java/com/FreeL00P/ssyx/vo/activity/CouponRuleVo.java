@@ -1,6 +1,7 @@
 package com.FreeL00P.ssyx.vo.activity;
 
 import com.FreeL00P.ssyx.enums.CouponRangeType;
+import com.FreeL00P.ssyx.model.activity.CouponRange;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

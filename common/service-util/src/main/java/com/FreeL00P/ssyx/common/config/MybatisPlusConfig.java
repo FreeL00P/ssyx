@@ -1,9 +1,8 @@
 package com.FreeL00P.ssyx.common.config;
 
-/**
- * MybatisPlusConfig
- *
- * @author fj
+/*
+  MybatisPlusConfig
+  @author fj
  * @since 2023/7/28 22:42
  */
 
@@ -20,7 +19,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @EnableTransactionManagement
 @Configuration
-@MapperScan("com.atguigu.ssyx.*.mapper")
+@MapperScan("com.FreeL00P.ssyx.*.mapper")
 public class MybatisPlusConfig {
 
     /**
