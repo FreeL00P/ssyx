@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.Map;
+
 /**
 * @author freeloop
 * @description 针对表【role(角色)】的数据库操作Service
@@ -14,4 +16,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface RoleService extends IService<Role> {
 
     IPage<Role> selectPage(Page<Role> pageParam, RoleQueryVo roleQueryVo);
+
+    Map<String, Object> findRoleByUserId(Long adminId);
+
+    void saveUserRoleRealtionShip(Long adminId, Long[] roleId);
 }

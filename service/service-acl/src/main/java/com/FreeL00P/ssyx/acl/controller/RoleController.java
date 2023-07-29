@@ -24,7 +24,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/admin/acl/role")
-@Api(tags = "用户管理")
+@Api(tags = "角色管理")
 @Slf4j
 @CrossOrigin
 public class RoleController {
@@ -33,6 +33,7 @@ public class RoleController {
     private RoleService roleService;
 
     @ApiModelProperty("获取角色列表")
+    @ApiOperation(value = "获取角色管理分页列表")
     @GetMapping("{page}/{limit}")
     public Result index(
             @ApiParam(name = "page", value = "当前页码", required = true)
