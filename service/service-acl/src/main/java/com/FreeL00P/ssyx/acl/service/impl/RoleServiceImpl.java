@@ -70,7 +70,7 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role>
     }
 
     @Override
-    public void saveUserRoleRealtionShip(Long adminId, Long[] roleId) {
+    public void saveUserRoleRelationShip(Long adminId, Long[] roleId) {
         //删除用户当前分配角色
         adminRoleService.remove(new LambdaQueryWrapper<AdminRole>().eq(AdminRole::getAdminId,adminId));
         //给用户重新分配角色

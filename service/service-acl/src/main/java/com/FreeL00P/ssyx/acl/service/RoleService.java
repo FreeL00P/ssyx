@@ -19,5 +19,5 @@ public interface RoleService extends IService<Role> {
 
     Map<String, Object> findRoleByUserId(Long adminId);
 
-    void saveUserRoleRealtionShip(Long adminId, Long[] roleId);
+    void saveUserRoleRelationShip(Long adminId, Long[] roleId);
 }

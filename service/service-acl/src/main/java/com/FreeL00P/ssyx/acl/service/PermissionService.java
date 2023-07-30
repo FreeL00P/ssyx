@@ -15,4 +15,8 @@ public interface PermissionService extends IService<Permission> {
     List<Permission> queryAllMenu();
 
     void removeChildById(Long id);
+
+    void saveRolePermissionRelationship(Long roleId, Long[] permissionId);
+
+    List<Permission> findPermissionByRoleId(Long roleId);
 }

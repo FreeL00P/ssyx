@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 菜单管理 前端控制器
@@ -53,6 +54,20 @@ public class PermissionAdminController {
     @DeleteMapping("remove/{id}")
     public Result remove(@PathVariable Long id) {
         permissionService.removeChildById(id);
+        return Result.ok();
+    }
+
+    @ApiOperation(value = "根据角色获取菜单数据")
+    @GetMapping("/toAssign/{roleId}")
+    public Result toAssign(@PathVariable Long roleId) {
+        List<Permission> allPermissions = permissionService.findPermissionByRoleId(roleId);
+        return Result.ok(allPermissions);
+    }
+
+    @ApiOperation(value = "根据角色分配菜单")
+    @PostMapping("/doAssign")
+    public Result doAssign(@RequestParam Long roleId, @RequestParam Long[] permissionId) {
+        permissionService.saveRolePermissionRelationship(roleId,permissionId);
         return Result.ok();
     }
 }

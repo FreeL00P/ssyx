@@ -8,7 +8,6 @@ import com.FreeL00P.ssyx.vo.acl.AdminQueryVo;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -100,7 +99,7 @@ public class AdminController {
     @ApiOperation(value = "根据用户分配角色")
     @PostMapping("/doAssign")
     public Result doAssign(@RequestParam Long adminId, @RequestParam Long[] roleId) {
-        roleService.saveUserRoleRealtionShip(adminId,roleId);
+        roleService.saveUserRoleRelationShip(adminId,roleId);
         return Result.ok();
     }
 }
