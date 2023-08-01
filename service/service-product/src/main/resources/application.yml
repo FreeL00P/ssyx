@@ -3,3 +3,11 @@ spring:
     name: service-product
   profiles:
     active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        name: service-product
+      username: nacos
+      password: nacos
