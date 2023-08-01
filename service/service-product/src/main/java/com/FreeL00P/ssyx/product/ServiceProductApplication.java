@@ -1,19 +1,21 @@
-package com.FreeL00P.ssys.sys;
+package com.FreeL00P.ssyx.product;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 /**
- * ServiceSysApplication
+ * ServiceProductApplication
  *
  * @author fj
- * @since 2023/7/30 21:33
+ * @since 2023/8/1 12:13
  */
+
+
 @SpringBootApplication
-@MapperScan("com.FreeL00P.ssys.sys.mapper")
-public class ServiceSysApplication {
+@MapperScan("com.FreeL00P.ssyx.product.mapper")
+public class ServiceProductApplication {
+
     public static void main(String[] args) {
-        SpringApplication.run(ServiceSysApplication.class, args);
+        SpringApplication.run(ServiceProductApplication.class, args);
     }
 }

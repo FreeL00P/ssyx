@@ -4,10 +4,7 @@ import com.FreeL00P.ssys.sys.service.WareService;
 import com.FreeL00P.ssyx.common.result.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -20,6 +17,7 @@ import javax.annotation.Resource;
 @Api(value = "Ware管理", tags = "Ware管理")
 @RestController
 @RequestMapping(value="/admin/sys/ware")
+@CrossOrigin
 public class WareController {
 
     @Resource

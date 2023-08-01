@@ -22,7 +22,7 @@ import javax.annotation.Resource;
 @Api(value = "RegionWare管理", tags = "RegionWare管理")
 @RestController
 @RequestMapping(value="/admin/sys/regionWare")
-@SuppressWarnings({"unchecked", "rawtypes"})
+@CrossOrigin
 public class RegionWareController {
     @Resource
     private RegionWareService regionWareService;
