@@ -39,6 +39,11 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category>
         queryWrapper.orderByAsc(Category::getSort);
         return this.list(queryWrapper);
     }
+
+    @Override
+    public List<Category> findCategoryList(List<Long> categoryIdList) {
+        return baseMapper.selectBatchIds(categoryIdList);
+    }
 }
 
 

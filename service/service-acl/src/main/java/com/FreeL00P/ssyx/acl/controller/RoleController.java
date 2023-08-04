@@ -28,7 +28,6 @@ import java.util.Map;
 @RequestMapping("/admin/acl/role")
 @Api(tags = "角色管理")
 @Slf4j
-@CrossOrigin
 public class RoleController {
 
     @Autowired

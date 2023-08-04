@@ -18,4 +18,6 @@ public interface CategoryService extends IService<Category> {
     IPage<Category> selectPage(Page<Category> pageParam, CategoryQueryVo categoryQueryVo);
 
     List<Category> findAllList();
+
+    List<Category> findCategoryList(List<Long> categoryIdList);
 }

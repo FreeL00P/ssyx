@@ -4,11 +4,11 @@ import com.FreeL00P.ssyx.model.product.Category;
 import com.FreeL00P.ssyx.model.product.SkuInfo;
 import com.FreeL00P.ssyx.product.service.CategoryService;
 import com.FreeL00P.ssyx.product.service.SkuInfoService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * ProductInnerController
@@ -35,5 +35,22 @@ public class ProductInnerController {
     @GetMapping("inner/getSkuInfo/{skuId}")
     public SkuInfo getSkuInfo(@PathVariable Long skuId){
         return skuInfoService.getById(skuId);
+    }
+
+    //根据skuId列表获取sku信息
+    @PostMapping("inner/findSkuInfoList")
+    public List<SkuInfo> findSkuInfoList(@RequestBody List<Long> skuIdList){
+        return skuInfoService.findSkuInfoList(skuIdList);
+    }
+
+    //根据关键字查询skuInfo列表
+    @GetMapping("inner/findSkuInfoByKeyWord/{keyword}")
+    public List<SkuInfo>  findSkuInfoByKeyWord(@PathVariable String keyword){
+        return skuInfoService.findSkuInfoByKeyWord(keyword);
+    }
+    @ApiOperation(value = "批量获取分类信息")
+    @PostMapping("inner/findCategoryList")
+    public List<Category> findCategoryList(@RequestBody List<Long> categoryIdList) {
+        return categoryService.findCategoryList(categoryIdList);
     }
 }

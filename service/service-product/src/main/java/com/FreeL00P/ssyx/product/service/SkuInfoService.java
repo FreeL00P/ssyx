@@ -7,6 +7,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
 * @author freeloop
 * @description 针对表【sku_info(sku信息)】的数据库操作Service
@@ -27,4 +29,8 @@ public interface SkuInfoService extends IService<SkuInfo> {
     void isNewPerson(Long skuId, Integer status);
 
     void check(Long skuId, Integer status);
+
+    List<SkuInfo> findSkuInfoList(List<Long> skuIdList);
+
+    List<SkuInfo> findSkuInfoByKeyWord(String keyword);
 }

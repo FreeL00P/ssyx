@@ -1,6 +1,6 @@
 package com.FreeL00P.ssyx.product.service.impl;
 
-import com.FreeL00P.ssys.mq.service.RabbitService;
+import com.FreeL00P.ssyx.mq.service.RabbitService;
 import com.FreeL00P.ssyx.common.constant.MqConst;
 import com.FreeL00P.ssyx.model.product.SkuAttrValue;
 import com.FreeL00P.ssyx.model.product.SkuImage;
@@ -215,6 +215,18 @@ public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoMapper, SkuInfo>
         skuInfo.setId(skuId);
         skuInfo.setIsNewPerson(status);
         this.updateById(skuInfo);
+    }
+
+    @Override
+    public List<SkuInfo> findSkuInfoList(List<Long> skuIdList) {
+        return baseMapper.selectBatchIds(skuIdList);
+    }
+
+    @Override
+    public List<SkuInfo> findSkuInfoByKeyWord(String keyword) {
+       return baseMapper.selectList(
+                new LambdaQueryWrapper<SkuInfo>().like(SkuInfo::getSkuName,keyword)
+        );
     }
 }
 
