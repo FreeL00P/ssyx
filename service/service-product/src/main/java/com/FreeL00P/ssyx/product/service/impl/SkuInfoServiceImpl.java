@@ -1,5 +1,7 @@
 package com.FreeL00P.ssyx.product.service.impl;
 
+import com.FreeL00P.ssys.mq.service.RabbitService;
+import com.FreeL00P.ssyx.common.constant.MqConst;
 import com.FreeL00P.ssyx.model.product.SkuAttrValue;
 import com.FreeL00P.ssyx.model.product.SkuImage;
 import com.FreeL00P.ssyx.model.product.SkuInfo;
@@ -41,6 +43,9 @@ public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoMapper, SkuInfo>
 
     @Autowired
     private SkuAttrValueService skuAttrValueService;
+
+    @Autowired
+    private RabbitService rabbitService;
 
     //获取sku分页列表
     @Override
@@ -183,13 +188,15 @@ public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoMapper, SkuInfo>
             skuInfoUp.setId(skuId);
             skuInfoUp.setPublishStatus(1);
             this.updateById(skuInfoUp);
-            //TODO 商品上架 后续会完善：发送mq消息更新es数据
+            //发送mq消息更新es数据
+            rabbitService.sendMessage(MqConst.EXCHANGE_GOODS_DIRECT,MqConst.ROUTING_GOODS_UPPER,skuId);
         }else {
             SkuInfo skuInfoDown = new SkuInfo();
             skuInfoDown.setId(skuId);
             skuInfoDown.setPublishStatus(0);
             this.updateById(skuInfoDown);
-            //TODO 商品下架 后续会完善：发送mq消息更新es数据
+            //商品下架：发送mq消息同步es
+            rabbitService.sendMessage(MqConst.EXCHANGE_GOODS_DIRECT, MqConst.ROUTING_GOODS_LOWER, skuId);
         }
     }
 
